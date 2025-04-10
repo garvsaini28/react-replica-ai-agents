@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import GetStarted from "./pages/GetStarted";
+import AgentList from "./pages/AgentList";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/agent-list" element={<AgentList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

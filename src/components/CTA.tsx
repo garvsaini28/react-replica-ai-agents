@@ -1,12 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DemoRequestForm from './DemoRequestForm';
 
 const CTA = () => {
+  const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
+  
   const handleScheduleDemo = () => {
-    window.open("https://page.genspark.site/page/toolu_01TNa5FvtKAPcvZsdP2JE6kQ/ai_recommendation_agents.html", "_blank");
+    setIsDemoFormOpen(true);
   };
 
   return (
@@ -39,6 +42,8 @@ const CTA = () => {
           </div>
         </div>
       </div>
+      
+      <DemoRequestForm isOpen={isDemoFormOpen} onOpenChange={setIsDemoFormOpen} />
     </section>
   );
 };
