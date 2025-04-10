@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold gradient-text">ReplicaAI</span>
-            </a>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -28,8 +29,12 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="rounded-full">Sign In</Button>
-            <Button className="rounded-full bg-blue-600 hover:bg-blue-700">Get Started</Button>
+            <Link to="/sign-in">
+              <Button variant="outline" className="rounded-full">Sign In</Button>
+            </Link>
+            <Link to="/get-started">
+              <Button className="rounded-full bg-blue-600 hover:bg-blue-700">Get Started</Button>
+            </Link>
           </div>
           
           <div className="md:hidden flex items-center">
@@ -76,8 +81,12 @@ const Navbar = () => {
               FAQ
             </a>
             <div className="pt-4 flex flex-col space-y-3">
-              <Button variant="outline" className="w-full rounded-full">Sign In</Button>
-              <Button className="w-full rounded-full bg-blue-600 hover:bg-blue-700">Get Started</Button>
+              <Link to="/sign-in" onClick={() => setIsMenuOpen(false)}>
+                <Button variant="outline" className="w-full rounded-full">Sign In</Button>
+              </Link>
+              <Link to="/get-started" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full rounded-full bg-blue-600 hover:bg-blue-700">Get Started</Button>
+              </Link>
             </div>
           </div>
         </div>
