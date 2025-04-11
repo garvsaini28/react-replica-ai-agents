@@ -54,26 +54,34 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				blue: {
-					100: '#E1EFFF',
-					200: '#ADCDFF',
-					300: '#7AAAFF',
-					400: '#4675F8',
-					500: '#3A66D9',
-					600: '#2F54B3',
-					700: '#193FA2',
-					800: '#0C2C70',
-					900: '#071852',
+					100: '#E0F7FF',
+					200: '#B5E8FF',
+					300: '#7CD5FF',
+					400: '#36C3FF',
+					500: '#00AEEF',
+					600: '#0095D9',
+					700: '#0077B6',
+					800: '#005A87',
+					900: '#003B5C',
 				},
-				purple: {
-					100: '#F2E6FF',
-					200: '#D8B9FF',
-					300: '#BA8AFF',
-					400: '#9D5CFC',
-					500: '#8842E3',
-					600: '#7231BF',
-					700: '#5A239A',
-					800: '#421873',
-					900: '#2C0E4E',
+				cyan: {
+					100: '#E0FAFF',
+					200: '#B8F1FF',
+					300: '#8AE8FF',
+					400: '#47DAFF',
+					500: '#00C9F2',
+					600: '#00A3CC',
+					700: '#0085A9',
+					800: '#00657F',
+					900: '#004353',
+				},
+				tech: {
+					blue: '#00AEEF',
+					cyan: '#27E9F7',
+					purple: '#7B61FF',
+					pink: '#FF61E6',
+					orange: '#FF8E42',
+					yellow: '#FFDD4A',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -125,13 +133,24 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'50%': {
+						opacity: '0.8',
+						transform: 'scale(1.05)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
 			}
 		}
 	},

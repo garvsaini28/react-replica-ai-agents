@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 50% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 236 83% 55%;
+    --primary: 196 100% 47%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -48,13 +48,48 @@
   }
 }
 
-.gradient-bg {
-  background: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+.tech-gradient-bg {
+  background: linear-gradient(135deg, #E0F7FF 0%, #E6F8FF 50%, #F5FAFF 100%);
 }
 
-.gradient-text {
+.tech-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(230, 240, 255, 0.5);
+  box-shadow: 0 4px 24px rgba(0, 174, 239, 0.07);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #00AEEF 0%, #27E9F7 100%);
+}
+
+.tech-gradient-text {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(90deg, #4158D0, #C850C0);
+  background-image: linear-gradient(90deg, #00AEEF, #7B61FF);
+}
+
+.tech-gradient-button {
+  background: linear-gradient(90deg, #00AEEF, #7B61FF);
+  transition: all 0.3s ease;
+}
+
+.tech-gradient-button:hover {
+  background: linear-gradient(90deg, #0095D9, #624BD9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 174, 239, 0.2);
+}
+
+.floating-tech {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(0, 174, 239, 0.3);
+}
+
+.nav-blur {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.8);
 }

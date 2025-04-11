@@ -10,6 +10,9 @@ import SignIn from "./pages/SignIn";
 import GetStarted from "./pages/GetStarted";
 import AgentList from "./pages/AgentList";
 
+// Remove unused App.css import and use index.css
+import './index.css'; 
+
 const queryClient = new QueryClient();
 
 const App = () => (

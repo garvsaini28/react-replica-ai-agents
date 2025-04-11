@@ -3,11 +3,8 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AgentCard from '@/components/AgentCard';
-import { useNavigate } from 'react-router-dom';
 
 const AgentList = () => {
-  const navigate = useNavigate();
-
   // Mock data for the AI agents
   const agents = [
     {
@@ -41,13 +38,17 @@ const AgentList = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col tech-gradient-bg">
       <Navbar />
-      <main className="flex-grow py-12">
+      <main className="flex-grow py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
+            <div className="inline-block mb-4 px-4 py-1 rounded-full bg-white/40 backdrop-blur shadow-sm">
+              <span className="font-medium text-tech-blue">Our AI Arsenal</span>
+            </div>
+            
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Our AI Recommendation Agents
+              Our AI Recommendation <span className="tech-gradient-text">Agents</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Test our powerful AI agents designed to deliver personalized recommendations
