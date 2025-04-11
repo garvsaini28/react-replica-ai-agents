@@ -33,7 +33,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent }) => {
     // Add user message
     const newConversation = [
       ...conversation,
-      { role: 'user', content: userInput }
+      { role: 'user' as const, content: userInput }
     ];
     
     setConversation(newConversation);
@@ -52,7 +52,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent }) => {
       
       setConversation([
         ...newConversation,
-        { role: 'agent', content: randomResponse }
+        { role: 'agent' as const, content: randomResponse }
       ]);
     }, 1000);
   };

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Robot } from 'lucide-react';
+import { ArrowRight, Bot } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DemoRequestForm from './DemoRequestForm';
 
@@ -62,13 +62,13 @@ const Hero = () => {
           {/* Floating elements */}
           <div className="absolute top-1/4 right-10 hidden lg:block">
             <div className="floating-tech p-3 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg">
-              <Robot className="h-10 w-10 text-tech-purple" />
+              <Bot className="h-10 w-10 text-tech-purple" />
             </div>
           </div>
           
           <div className="absolute bottom-1/4 left-10 hidden lg:block">
             <div className="floating-tech p-3 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg animation-delay-200">
-              <Robot className="h-10 w-10 text-tech-blue" />
+              <Bot className="h-10 w-10 text-tech-blue" />
             </div>
           </div>
         </div>
