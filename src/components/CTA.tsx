@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from 'lucide-react';
+import { ArrowRight, Rocket, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DemoRequestForm from './DemoRequestForm';
 
@@ -13,16 +13,21 @@ const CTA = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hero-gradient rounded-2xl overflow-hidden shadow-xl relative">
+        <div className="cta-gradient rounded-3xl overflow-hidden shadow-2xl relative">
           {/* Abstract shapes */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
-          <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           
-          <div className="px-6 py-12 md:p-12 text-center md:text-left md:flex md:items-center md:justify-between relative z-10">
-            <div className="max-w-2xl md:mx-0 mx-auto mb-8 md:mb-0">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <div className="px-8 py-16 md:py-20 text-center md:text-left md:flex md:items-center md:justify-between relative z-10">
+            <div className="max-w-2xl md:mx-0 mx-auto mb-10 md:mb-0">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                <Sparkles className="h-5 w-5 text-white" />
+                <span className="text-white/90 font-medium">Start your journey today</span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
                 Ready to transform your recommendation strategy?
               </h2>
               <p className="text-white/80 text-lg">
@@ -37,7 +42,7 @@ const CTA = () => {
               </Link>
               <Button 
                 variant="outline" 
-                className="bg-transparent border-white text-white hover:bg-white/20 rounded-full font-medium text-base py-6 px-8"
+                className="bg-transparent border-2 border-white text-white hover:bg-white/20 rounded-full font-medium text-base py-6 px-8"
                 onClick={handleScheduleDemo}
               >
                 Schedule Demo
@@ -45,9 +50,13 @@ const CTA = () => {
             </div>
           </div>
           
-          {/* Decorative element */}
+          {/* Decorative elements */}
           <div className="absolute -bottom-6 right-10 hidden md:block animate-float">
             <Rocket className="h-12 w-12 text-white/70" />
+          </div>
+          
+          <div className="absolute top-10 left-10 hidden md:block">
+            <div className="h-24 w-24 rounded-full bg-white/10 pulse-glow"></div>
           </div>
         </div>
       </div>

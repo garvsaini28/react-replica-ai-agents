@@ -31,23 +31,23 @@ const faqItems = [
 
 const FAQItem = ({ question, answer, isOpen, toggleOpen }) => {
   return (
-    <div className="border-b border-gray-200 py-5">
+    <div className={`border-b border-gray-200 py-5 transition-all duration-300 ${isOpen ? 'bg-blue-50/40' : ''}`}>
       <button
-        className="flex justify-between items-center w-full text-left font-medium text-gray-900"
+        className="flex justify-between items-center w-full text-left font-medium text-gray-900 group"
         onClick={toggleOpen}
       >
-        <span>{question}</span>
-        {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-gray-500" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-gray-500" />
-        )}
-      </button>
-      {isOpen && (
-        <div className="mt-3 pr-12">
-          <p className="text-gray-600">{answer}</p>
+        <span className={`text-lg ${isOpen ? 'text-tech-blue' : ''} group-hover:text-tech-blue transition-colors`}>{question}</span>
+        <div className={`p-1 rounded-full ${isOpen ? 'bg-tech-blue text-white' : 'bg-gray-100 text-gray-500 group-hover:bg-blue-100 group-hover:text-tech-blue'} transition-all`}>
+          {isOpen ? (
+            <ChevronUp className="h-5 w-5" />
+          ) : (
+            <ChevronDown className="h-5 w-5" />
+          )}
         </div>
-      )}
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <p className="text-gray-600 pr-12">{answer}</p>
+      </div>
     </div>
   );
 };
@@ -64,18 +64,26 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-16 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 pricing-gradient relative overflow-hidden">
+      {/* Abstract shapes */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-tech-cyan/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block mb-4">
-            Frequently Asked Questions
+          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-white shadow-sm">
+            <span className="text-sm font-medium text-tech-blue">Got Questions?</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked <span className="tech-gradient-text">Questions</span>
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             Everything you need to know about our AI recommendation platform
           </p>
         </div>
         
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
           {faqItems.map((item, index) => (
             <FAQItem
               key={index}
@@ -87,11 +95,15 @@ const FAQ = () => {
           ))}
         </div>
         
-        <div className="text-center mt-10">
-          <p className="text-gray-600 mb-4">
-            Don't see your question here?
+        <div className="text-center mt-12 tech-card py-8 px-6 rounded-2xl">
+          <h3 className="text-xl font-semibold mb-3">Still have questions?</h3>
+          <p className="text-gray-600 mb-6">
+            Our team is here to help you get started with the perfect recommendation solution for your business.
           </p>
-          <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+          <a 
+            href="#" 
+            className="inline-flex items-center px-6 py-3 bg-tech-blue text-white rounded-full font-medium hover:bg-blue-600 transition-colors"
+          >
             Contact our support team
           </a>
         </div>

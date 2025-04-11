@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 
 const PricingCard = ({ 
   title, 
@@ -13,29 +13,46 @@ const PricingCard = ({
   annualBilling 
 }) => {
   return (
-    <div className={`bg-white rounded-xl p-6 shadow-sm border ${popular ? 'border-blue-400 ring-2 ring-blue-400/20' : 'border-gray-200'}`}>
+    <div className={`rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+      popular 
+        ? 'bg-gradient-to-br from-white to-blue-50 shadow-lg border border-blue-100 ring-4 ring-blue-100/20' 
+        : 'bg-white shadow-md border border-gray-100'
+    }`}>
       {popular && (
-        <div className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">
-          MOST POPULAR
+        <div className="flex items-center gap-1 text-blue-600 text-sm font-semibold px-3 py-1 rounded-full bg-blue-50 mb-4 w-fit">
+          <Sparkles className="h-3.5 w-3.5" />
+          <span>MOST POPULAR</span>
         </div>
       )}
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="text-2xl font-bold mb-2">{title}</h3>
       <div className="mb-4">
-        <span className="text-4xl font-bold">${annualBilling ? price * 10 : price}</span>
-        <span className="text-gray-500">/month</span>
-        {annualBilling && <span className="ml-2 text-green-600 text-sm font-medium">Save 17%</span>}
+        <div className="flex items-end">
+          <span className="text-5xl font-bold">${annualBilling ? price * 10 : price}</span>
+          <span className="text-gray-500 ml-2 mb-1">/month</span>
+        </div>
+        {annualBilling && (
+          <span className="inline-block mt-1 text-green-600 text-sm font-medium bg-green-50 px-2 py-0.5 rounded-full">
+            Save 17%
+          </span>
+        )}
       </div>
       <p className="text-gray-600 mb-6">{description}</p>
       <Button 
-        className={`w-full rounded-lg mb-6 ${popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-900'}`}
+        className={`w-full rounded-xl text-base py-6 h-auto ${
+          popular 
+            ? 'tech-gradient-button text-white' 
+            : 'bg-gray-800 hover:bg-gray-900 transition-all hover:-translate-y-1'
+        }`}
       >
         {ctaText}
       </Button>
-      <div className="space-y-3">
+      <div className="space-y-4 mt-8">
         {features.map((feature, i) => (
           <div key={i} className="flex items-start">
             <div className="flex-shrink-0 pt-1">
-              <Check className="h-5 w-5 text-green-500" />
+              <div className={`rounded-full p-1 ${popular ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                <Check className={`h-4 w-4 ${popular ? 'text-blue-600' : 'text-gray-600'}`} />
+              </div>
             </div>
             <p className="ml-3 text-gray-600">{feature}</p>
           </div>
@@ -98,29 +115,37 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block mb-4">
-            Simple, Transparent Pricing
+    <section id="pricing" className="pricing-gradient py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Abstract shapes */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-tech-cyan/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-tech-purple/10 rounded-full blur-3xl"></div>
+      
+        <div className="text-center mb-16 relative z-10">
+          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-white shadow-sm">
+            <span className="text-sm font-medium text-tech-blue">Flexible Pricing Plans</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Simple, <span className="tech-gradient-text">Transparent</span> Pricing
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
             Choose the plan that fits your business needs. All plans include our core AI recommendation technology.
           </p>
           
           <div className="flex justify-center mb-12">
-            <div className="bg-gray-100 p-1 rounded-full inline-flex items-center">
+            <div className="bg-white p-1 rounded-full inline-flex items-center shadow-md">
               <button
-                className={`px-4 py-2 rounded-full text-sm ${
-                  !annualBilling ? 'bg-white shadow-sm' : 'text-gray-700'
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  !annualBilling ? 'bg-gray-800 text-white shadow-sm' : 'text-gray-700 hover:bg-gray-100'
                 }`}
                 onClick={() => setAnnualBilling(false)}
               >
                 Monthly
               </button>
               <button
-                className={`px-4 py-2 rounded-full text-sm ${
-                  annualBilling ? 'bg-white shadow-sm' : 'text-gray-700'
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  annualBilling ? 'bg-gray-800 text-white shadow-sm' : 'text-gray-700 hover:bg-gray-100'
                 }`}
                 onClick={() => setAnnualBilling(true)}
               >
